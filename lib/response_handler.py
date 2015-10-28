@@ -510,7 +510,7 @@ class MavensMateResponseHandler(object):
             debug(test_class_name)
             debug(self.response['result']['testResults'][test_class_name])
 
-            
+            test_result = self.response['result']['testResults'][test_class_name]
 
             for r in test_result['results']:
                 msg += '\n\n METHOD RESULT \n'
@@ -529,7 +529,6 @@ class MavensMateResponseHandler(object):
                     msg += r["Message"]
                     msg += "\n"
 
-            test_result = self.response['result']['testResults'][test_class_name]
             tests_passed_vs_failed = test_result['ExtendedStatus']
 
             tests_passed_vs_failed = tests_passed_vs_failed.replace('(', '').replace(')','')
